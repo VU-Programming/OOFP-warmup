@@ -22,6 +22,7 @@ object Exercises {
 
    */
   def indexOfMax(a : Array[Int]) : Int = {
+    while(true) {}
    return -1
   }
 

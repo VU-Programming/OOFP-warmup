@@ -11,12 +11,16 @@ import org.scalatestplus.junit.JUnitRunner
 import org.scalatest.prop.Checkers
 import org.scalacheck.Arbitrary._
 import org.scalacheck.Prop._
-import org.scalatest.concurrent.TimeLimitedTests
+import org.scalatest.concurrent.{Interruptor, Signaler, ThreadSignaler, TimeLimitedTests}
 import org.scalatest.time.{Second, Seconds, Span}
 import org.scalactic.Tolerance._
 
 @RunWith(classOf[JUnitRunner])
 class Tests extends FunSuite with TimeLimitedTests {
+  override val defaultTestSignaler: Signaler = ThreadSignaler
+
+
+  override def timeLimit: Span = Span(1,Seconds)
 
   test("max0") {
     assert(Exercises.indexOfMax(Array())== -1)
@@ -258,5 +262,4 @@ class Tests extends FunSuite with TimeLimitedTests {
 
 
 
-  override def timeLimit: Span = Span(5,Seconds)
 }
