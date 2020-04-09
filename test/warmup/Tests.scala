@@ -1,27 +1,15 @@
-package test
+package warmup
 
-
-
-import warmup.Exercises
-import warmup.Exercises.{Game, Player}
-import org.junit.Test
 import org.junit.runner.RunWith
-import org.scalatest.FunSuite
-import org.scalatestplus.junit.JUnitRunner
-import org.scalatest.prop.Checkers
-import org.scalacheck.Arbitrary._
-import org.scalacheck.Prop._
-import org.scalatest.concurrent.{Interruptor, Signaler, ThreadSignaler, TimeLimitedTests}
-import org.scalatest.time.{Second, Seconds, Span}
 import org.scalactic.Tolerance._
+import org.scalatest.FunSuite
+import org.scalatest.concurrent.{Signaler, ThreadSignaler, TimeLimitedTests}
+import org.scalatest.time.{Seconds, Span}
+import org.scalatestplus.junit.JUnitRunner
+import warmup.Exercises.{Game, Player}
 
 @RunWith(classOf[JUnitRunner])
 class Tests extends FunSuite with TimeLimitedTests {
-  override val defaultTestSignaler: Signaler = ThreadSignaler
-
-
-  override def timeLimit: Span = Span(1,Seconds)
-
   test("max0") {
     assert(Exercises.indexOfMax(Array())== -1)
   }
@@ -259,7 +247,13 @@ class Tests extends FunSuite with TimeLimitedTests {
     val b = Exercises.mergeSort(a)
     assert(b.sameElements(Array(1,2,3,4,5,6,7,8)))
   }
+  override def timeLimit: Span = Span(1,Seconds)
+  // this is need to actually stop when the buggy code contains an infinite loop...
+  override val defaultTestSignaler: Signaler = ReallyStopSignaler
+}
 
-
-
+object ReallyStopSignaler extends Signaler {
+  override def apply(testThread: Thread): Unit = {
+    testThread.stop() // deprecated. unsafe. do not use
+  }
 }
