@@ -2,14 +2,11 @@ package warmup
 
 import org.junit.runner.RunWith
 import org.scalactic.Tolerance._
-import org.scalatest.FunSuite
-import org.scalatest.concurrent.{Signaler, TimeLimitedTests}
-import org.scalatest.time.{Seconds, Span}
 import org.scalatestplus.junit.JUnitRunner
 import warmup.Exercises.{Game, Player}
 
 @RunWith(classOf[JUnitRunner])
-class Tests extends FunSuite with TimeLimitedTests {
+class Tests extends TestBase {
   test("max0") {
     assert(Exercises.indexOfMax(Array()) == -1)
   }
@@ -314,14 +311,5 @@ class Tests extends FunSuite with TimeLimitedTests {
     val answer = Array(1,2,3,4,5,6,7,8)
 
     mergeSortTest(input, answer)
-  }
-  override def timeLimit: Span = Span(1,Seconds)
-  // this is need to actually stop when the buggy code contains an infinite loop...
-  override val defaultTestSignaler: Signaler = ReallyStopSignaler
-}
-
-object ReallyStopSignaler extends Signaler {
-  override def apply(testThread: Thread): Unit = {
-    StopRunningNow.stopRunningNowUnsafe(testThread)
   }
 }
