@@ -13,8 +13,18 @@ class EloScoresTests extends TestBase {
         val piet = new Player("Piet", 2200)
         val game = new Game(jaap, piet, 0.0)
         Exercises.updateEloScores(List(jaap, piet), List(game))
-        assert(jaap.rating === 2018.24 +- 0.01)
-        assert(piet.rating === 2181.76 +- 0.01)
+
+        val jaapResult = jaap.rating === 2018.24 +- 0.01
+        val pietResult = piet.rating === 2181.76 +- 0.01
+        val finalResult = jaapResult && pietResult
+
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (finalResult) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(finalResult)
     }
 
     test("elo2") {
@@ -32,9 +42,18 @@ class EloScoresTests extends TestBase {
 
         Exercises.updateEloScores(players, games)
 
-        assert(piet.rating === 1502.87 +- 0.01)
-        assert(mies.rating === 1709.39 +- 0.01)
-        assert(ella.rating === 1387.74 +- 0.01)
+        val pietResult = piet.rating === 1502.87 +- 0.01
+        val miesResult = mies.rating === 1709.39 +- 0.01
+        val ellaResult = ella.rating === 1387.74 +- 0.01
+        val finalResult = pietResult && miesResult && ellaResult
+
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (finalResult) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(finalResult)
     }
 
     test("elo3") {
@@ -56,9 +75,18 @@ class EloScoresTests extends TestBase {
 
         Exercises.updateEloScores(players, games)
 
-        assert(jaap.rating === 2026.13 +- 0.01)
-        assert(piet.rating === 2183.20 +- 0.01)
-        assert(mies.rating === 2579.34 +- 0.01)
-        assert(ella.rating === 1911.31 +- 0.01)
+        val jaapResult = jaap.rating === 2026.13 +- 0.01
+        val pietResult = piet.rating === 2183.20 +- 0.01
+        val miesResult = mies.rating === 2579.34 +- 0.01
+        val ellaResult = ella.rating === 1911.31 +- 0.01
+        val finalResult = jaapResult && pietResult && miesResult && ellaResult
+
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (finalResult) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(finalResult)
     }
 }

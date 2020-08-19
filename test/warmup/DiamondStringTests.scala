@@ -67,29 +67,57 @@ class DiamondStringTests extends TestBase {
 
     test("diamond3") {
         val actual = Exercises.diamondString(3)
-        val clue = buildDiamondTestClue(actual, diamond3)
+        val expected = diamond3
+        val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual == diamond3, clue)
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (actual == expected) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(actual == expected, clue)
     }
 
     test("diamond4") {
         val actual = Exercises.diamondString(4)
-        val clue = buildDiamondTestClue(actual, diamond4)
+        val expected = diamond4
+        val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual == diamond4, clue)
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (actual == expected) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(actual == expected, clue)
     }
 
     test("diamond7") {
         val actual = Exercises.diamondString(7)
-        val clue = buildDiamondTestClue(actual, diamond7)
+        val expected = diamond7
+        val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual == diamond7, clue)
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (actual == expected) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(actual == expected, clue)
     }
 
     test("diamond12") {
         val actual = Exercises.diamondString(12)
-        val clue = buildDiamondTestClue(actual, diamond12)
+        val expected = diamond12
+        val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual == diamond12, clue)
+        val weight = 1
+        TestMaster.addWeight(weight)
+        if (actual == expected) {
+            TestMaster.addPoints(weight)
+        }
+
+        assert(actual == expected, clue)
     }
 }
