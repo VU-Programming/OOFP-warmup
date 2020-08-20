@@ -69,13 +69,13 @@ class Tests extends FunSuite with TimeLimitedTests {
   private val diamond3 =
     """ #
        |###
-       | #""".stripMargin
+       | #""".stripMargin.replaceAll(System.lineSeparator(), "\n")
 
   private val diamond4 =
     """ #
       |###
       |###
-      | #""".stripMargin
+      | #""".stripMargin.replaceAll(System.lineSeparator(), "\n")
 
   private val diamond7 =
     """   #
@@ -84,7 +84,7 @@ class Tests extends FunSuite with TimeLimitedTests {
       |#######
       | #####
       |  ###
-      |   #""".stripMargin
+      |   #""".stripMargin.replaceAll(System.lineSeparator(), "\n")
 
   private val diamond12 =
     """     #
@@ -98,7 +98,7 @@ class Tests extends FunSuite with TimeLimitedTests {
       |  #######
       |   #####
       |    ###
-      |     #""".stripMargin
+      |     #""".stripMargin.replaceAll(System.lineSeparator(), "\n")
 
   private def buildDiamondTestClue(actual: String, expected: String): String = {
     def lineCount(s: String): Int = {
@@ -127,28 +127,28 @@ class Tests extends FunSuite with TimeLimitedTests {
   }
 
   test("diamond3") {
-    val actual = Exercises.diamondString(3)
+    val actual = Exercises.diamondString(3).replaceAll(System.lineSeparator(), "\n")
     val clue = buildDiamondTestClue(actual, diamond3)
 
     assert(actual == diamond3, clue)
   }
 
   test("diamond4") {
-    val actual = Exercises.diamondString(4)
+    val actual = Exercises.diamondString(4).replaceAll(System.lineSeparator(), "\n")
     val clue = buildDiamondTestClue(actual, diamond4)
 
     assert(actual == diamond4, clue)
   }
 
   test("diamond7") {
-    val actual = Exercises.diamondString(7)
+    val actual = Exercises.diamondString(7).replaceAll(System.lineSeparator(), "\n")
     val clue = buildDiamondTestClue(actual, diamond7)
 
     assert(actual == diamond7, clue)
   }
 
   test("diamond12") {
-    val actual = Exercises.diamondString(12)
+    val actual = Exercises.diamondString(12).replaceAll(System.lineSeparator(), "\n")
     val clue = buildDiamondTestClue(actual, diamond12)
 
     assert(actual == diamond12, clue)
