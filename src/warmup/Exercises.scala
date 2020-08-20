@@ -59,10 +59,10 @@ object Exercises {
 
       The Collatz conjecture states that, no matter which integer we start with, the collatz sequence will
       eventually reach 1 and repeat the pattern 4,2,1 forever. The conjecture is probably true, and has been checked
-      by computers for all starting values up to 87×2^60(!). However, there is no mathematical proof for seemingly simple
-      statement. There have been  mathematicians that have spent years of continued study on the conjecture, without
-      success.Mathematical professor Jeffrey Lagarias has written a book about Collatz conjecture, and stated that
-       "this is an extraordinarily difficult problem, completely out of reach of present day mathematics".
+      by computers for all starting values up to 87×2^60(!). However, there is no mathematical proof for seemingly
+      simple statement. There have been  mathematicians that have spent years of continued study on the conjecture,
+      without success.Mathematical professor Jeffrey Lagarias has written a book about Collatz conjecture, and stated
+      that "this is an extraordinarily difficult problem, completely out of reach of present day mathematics".
 
       Luckily, programming the Collatz sequence is much easier! Please implement a function which when given a starting
        number, returns the number of elements in the sequence before reaching 1. For example:
@@ -80,7 +80,8 @@ object Exercises {
   }
 
 
-  /* Assignment 4: Write a function that produces "ASCII art" of a diamond of height n such the following diamond of height 7 :
+  /* Assignment 4: Write a function that produces "ASCII art" of a diamond of height n such the following diamond
+   of height 7 :
 
    #
   ###
@@ -115,9 +116,8 @@ Note that the last character of each line should be # and that hence the line sh
   }
 
 
-  /* Assignment 5: Implement a function word count that gives the word counts for all words in a string. Ignore whitespace and capitalization.
-
-
+  /* Assignment 5: Implement a function word count that gives the word counts for all words in a string.
+  Ignore whitespace and capitalization.
 
    Examples:
     "the monkey hugs the monkey" gives Map(the -> 2, monkey -> 2, hugs -> 1)

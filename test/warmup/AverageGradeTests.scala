@@ -10,6 +10,8 @@ class AverageGradeTests extends TestBase {
         val actual = Exercises.averageGrade("NS NS 9 NS NS 5")
         val expected = 7
 
+        System.err.printf("HALLLOOOOOO!!!")
+
         assert(actual == expected)
     }
 

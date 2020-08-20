@@ -21,6 +21,8 @@ test {
 }
 
 task codegrade(type: Test) {
+    // To make sure you can always run this task
+    outputs.upToDateWhen { false }
     useJUnitPlatform()
     include "**/AllTests.class"
     testLogging {
@@ -54,30 +56,33 @@ dependencies {
     compile "org.scalacheck:scalacheck_${scalaMajorVersion}:1.14.3"
 }
 
+
 task zip(type: Zip) {
     group = "prepareZipForSubmit"
     description = "Zip your code for submission to Canvas"
 
     // To make sure you can always run this task
     outputs.upToDateWhen { false }
-    dependsOn build
-    from fileTree(dir: 'src/bla')
+    dependsOn assemble
+    from fileTree(dir: 'src/warmup')
     include '*/**'
 
-    archiveFileName = 'exercises.zip'
+    archiveFileName = 'warmup.zip'
     destinationDir(file("$projectDir"))
 }
 
 
-//tasks.withType(Test) {
-//    group = "verification"
-//    testLogging {
-//        events  TestLogEvent.FAILED,
-//                TestLogEvent.PASSED,
-//                TestLogEvent.STANDARD_OUT
-//    }
-//}
-
+/* this prints a number between 0.0 and 1.0 to stderr
+   for use in codegrade
+ */
+task fraction(type: JavaExec, dependsOn: classes) {
+    // To make sure you can always run this task
+    outputs.upToDateWhen { false }
+    main = 'warmup.infrastructure.ReportFraction'
+    classpath sourceSets.test.runtimeClasspath
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}
 
 
 
