@@ -9,8 +9,22 @@ plugins {
 
 test {
     useJUnitPlatform()
+    exclude "**/TestMaster.class"
     afterSuite { suite, result ->
         result.exception?.printStackTrace()
+    }
+    testLogging {
+        events TestLogEvent.STANDARD_OUT,
+               TestLogEvent.FAILED,
+               TestLogEvent.PASSED
+    }
+}
+
+task codegrade(type: Test) {
+    useJUnitPlatform()
+    include "**/TestMaster.class"
+    testLogging {
+        events TestLogEvent.STANDARD_OUT
     }
 }
 
@@ -55,14 +69,14 @@ task zip(type: Zip) {
 }
 
 
-tasks.withType(Test) {
-    group = "verification"
-    testLogging {
-        events  TestLogEvent.FAILED,
-                TestLogEvent.PASSED,
-                TestLogEvent.STANDARD_OUT
-    }
-}
+//tasks.withType(Test) {
+//    group = "verification"
+//    testLogging {
+//        events  TestLogEvent.FAILED,
+//                TestLogEvent.PASSED,
+//                TestLogEvent.STANDARD_OUT
+//    }
+//}
 
 
 

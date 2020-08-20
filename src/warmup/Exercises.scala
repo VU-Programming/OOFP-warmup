@@ -38,7 +38,7 @@ object Exercises {
   averageGrade("8 8.2 NS NS 9 4 1 5.5") == 5.95
 
    */
-  def averageGrade(grades : String) = {
+  def averageGrade(grades : String) : Double = {
     0
   }
 
@@ -139,7 +139,7 @@ Note that the last character of each line should be # and that hence the line sh
 
   /* Assignment 6: Elo ratings
 
-  In chess and various other form of competition the skill of a player is indicated using
+  In chess and various other forms of competition the skill of a player is indicated using
   the Elo-rating system. The elo-rating is a number in the 0-3000 range, where 0 is an absolute beginner and
   2900 is the world champion.
 
@@ -181,7 +181,7 @@ Note that the last character of each line should be # and that hence the line sh
 
   val eloK = 24
 
-  def updateEloScores(players : List[Player] , games : List[Game]) = {
+  def updateEloScores(players : List[Player] , games : List[Game]) : Unit = {
   }
 
   class Player(
@@ -196,6 +196,30 @@ Note that the last character of each line should be # and that hence the line sh
             )
   {
   }
+
+  /* Assignment 7: List speed offenders.
+
+  Two sets of cameras have been set up on the A2 highway near Utrecht to find speed offenders. The sets of cameras, named "A" and "B",
+  are 1500 meters apart and the speed limit is 100 km/h between 6:00 and 19:00 and 120 km/h between 19:00 and 6:00.
+  The cameras are only positioned on North-bound direction of the highway, and the cars first pass the "A" cameras
+  and then the "B" cameras. After processing, the speed cameras produce a list of cars and the times they passed as follows:
+
+  Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 3, 5.0))
+  Observation(cameraSet = "B", licensePlate = "WW-11-XX", time = Time(18492, 13, 3, 6.0))
+  Observation(cameraSet = "A", licensePlate = "MV-33-PP", time = Time(18492, 13, 3, 6.2))
+  Observation(cameraSet = "A", licensePlate = "33-XX-RR", time = Time(18492, 13, 3, 6.7))
+  ....
+  Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 4, 1.0))
+
+  Program a method that takes
+
+   */
+
+  // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
+  // (see https://en.wikipedia.org/wiki/Epoch)
+  case class Time(daysSinceEpoch : Int, hour : Int, minutes : Int, seconds : Double)
+
+  case class Observation(cameraSet : String, licensePlate : String, time : Double )
 
   /* Assignment 7: Program a method that split any non-empty array into two arrays.
 
