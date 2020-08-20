@@ -20,6 +20,6 @@ object ReportFraction {
       override def apply(event: Event): Unit = () } ,
       configMap = ConfigMap("scoreCounter"->  scoreCounter))
     )
-    err.printf(scoreCounter.fraction().toString)
+    err.printf("%.2f",scoreCounter.fraction())
   }
 }
