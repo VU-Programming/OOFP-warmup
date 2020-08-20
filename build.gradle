@@ -22,7 +22,7 @@ test {
 
 task codegrade(type: Test) {
     useJUnitPlatform()
-    include "**/TestMaster.class"
+    include "**/AllTests.class"
     testLogging {
         events TestLogEvent.STANDARD_OUT
     }
