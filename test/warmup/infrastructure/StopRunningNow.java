@@ -1,4 +1,4 @@
-package warmup;
+package warmup.infrastructure;
 /* We are using Java here purely such that we can use the
    @SuppressWarnings("deprecation") annotation to
    make the compiler stop complaining about this unsafe (but only!) way

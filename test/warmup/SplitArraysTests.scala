@@ -2,6 +2,7 @@ package warmup
 
 import org.junit.runner.RunWith
 import org.scalatestplus.junit.JUnitRunner
+import warmup.infrastructure.TestBase
 
 @RunWith(classOf[JUnitRunner])
 class SplitArraysTests extends TestBase {

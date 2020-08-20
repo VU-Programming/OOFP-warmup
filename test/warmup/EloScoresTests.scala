@@ -2,9 +2,9 @@ package warmup
 
 import warmup.Exercises.{Game, Player}
 import org.scalactic.Tolerance._
-
 import org.junit.runner.RunWith
 import org.scalatestplus.junit.JUnitRunner
+import warmup.infrastructure.TestBase
 
 @RunWith(classOf[JUnitRunner])
 class EloScoresTests extends TestBase {
