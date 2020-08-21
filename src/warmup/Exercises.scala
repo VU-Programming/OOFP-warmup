@@ -202,11 +202,12 @@ Note that the last character of each line should be # and that hence the line sh
   Two sets of cameras have been set up on the A2 highway near Utrecht to find speed offenders. The sets of cameras,
   named "A" and "B", are 1500 meters apart and the speed limit is 100 km/h between 6:00 and 19:00 and 120 km/h between
   19:00 and 6:00. If a car passed both cameras in a (single) 6:00 to 19:00 period then it is going to fast if its speed
-  is over 100 km/h. If a car passed either camera in between 19:00 and 6, then it is going to fast if its speed is over
+  is over 100 km/h. If a car passed either camera in between 19:00 and 6:00, then it is going to fast if its speed is over
   120 km/h.
 
   The cameras are only positioned on North-bound direction of the highway, and the cars first pass the "A" cameras
-  and then the "B" cameras. After processing, the speed cameras produce a list of cars and the times they passed as follows:
+  and then the "B" cameras. After processing, the speed cameras produce a list of cars and the times they passed as
+  follows (definitions of Observation and Time below):
 
   Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 3, 5.0))
   Observation(cameraSet = "B", licensePlate = "WW-11-XX", time = Time(18492, 13, 3, 6.0))
@@ -223,11 +224,15 @@ Note that the last character of each line should be # and that hence the line sh
 
   // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
   // (see https://en.wikipedia.org/wiki/Epoch)
-  case class Time(daysSinceEpoch : Int, hour : Int, minutes : Int, seconds : Double)
+  case class Time(daysSinceEpoch : Int, hours : Int, minutes : Int, seconds : Double)
+  // case class means (among other things) that you do not have to type new to create one
+  // so instead of new Time(43,6,3,0) you just type Time(43,6,3,0)
+  // equality and pretty printing are also defined for you
 
-  case class Observation(cameraSet : String, licensePlate : String, time : Double )
 
-  case class SpeedOffender(licensePlate : String, speed : Double)
+  case class Observation(cameraSet : String, licensePlate : String, time : Time )
+
+  case class SpeedOffender(licensePlate : String, speed : Int)
 
   def speedOffenders(observations: Seq[Observation]) : Seq[SpeedOffender] = {
     null

@@ -9,15 +9,18 @@ import AllTests._
 
 @RunWith(classOf[JUnitRunner])
 class AllTests extends Suites(
+    new IndexOfMaxTests,
     new AverageGradeTests,
     new CollatzLengthTests,
     new DiamondStringTests,
+    new WordCountTests,
     new EloScoresTests,
-    new IndexOfMaxTests,
+    new SpeedOffendersTests,
+    new SplitArraysTests,
     new MergeSortedArraysTests,
     new MergeSortTests,
-    new SplitArraysTests,
-    new WordCountTests
+
+
 ) {
 
     override def run(testName: Option[String], args: Args): Status = {
