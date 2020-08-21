@@ -199,8 +199,12 @@ Note that the last character of each line should be # and that hence the line sh
 
   /* Assignment 7: List speed offenders.
 
-  Two sets of cameras have been set up on the A2 highway near Utrecht to find speed offenders. The sets of cameras, named "A" and "B",
-  are 1500 meters apart and the speed limit is 100 km/h between 6:00 and 19:00 and 120 km/h between 19:00 and 6:00.
+  Two sets of cameras have been set up on the A2 highway near Utrecht to find speed offenders. The sets of cameras,
+  named "A" and "B", are 1500 meters apart and the speed limit is 100 km/h between 6:00 and 19:00 and 120 km/h between
+  19:00 and 6:00. If a car passed both cameras in a (single) 6:00 to 19:00 period then it is going to fast if its speed
+  is over 100 km/h. If a car passed either camera in between 19:00 and 6, then it is going to fast if its speed is over
+  120 km/h.
+
   The cameras are only positioned on North-bound direction of the highway, and the cars first pass the "A" cameras
   and then the "B" cameras. After processing, the speed cameras produce a list of cars and the times they passed as follows:
 
@@ -211,8 +215,10 @@ Note that the last character of each line should be # and that hence the line sh
   ....
   Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 4, 1.0))
 
-  Program a method that takes
 
+
+  Program a method that takes the observations of the cameras and produces a list of speed offenders and their speed
+  in the order that the cars passed cameraset B.
    */
 
   // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
@@ -221,7 +227,13 @@ Note that the last character of each line should be # and that hence the line sh
 
   case class Observation(cameraSet : String, licensePlate : String, time : Double )
 
-  /* Assignment 7: Program a method that split any non-empty array into two arrays.
+  case class SpeedOffender(licensePlate : String, speed : Double)
+
+  def speedOffenders(observations: Seq[Observation]) : Seq[SpeedOffender] = {
+    null
+  }
+
+  /* Assignment 8: Program a method that split any non-empty array into two arrays.
 
   If the input array has length l , the first array should have length (l / 2),
   the second array should have length (l - (l / 2)). For example, for
@@ -237,7 +249,7 @@ Note that the last character of each line should be # and that hence the line sh
   }
 
 
-  /* Assignment 8:
+  /* Assignment 9:
 
      Program a method that when given two sorted arrays a and b, returns a new sorted array c that has the elements from
      array and array b. For example
@@ -273,7 +285,7 @@ Note that the last character of each line should be # and that hence the line sh
 
 
 
-  /* Assignment 9 : Mergesort
+  /* Assignment 10 : Mergesort
 
   Implement mergesort. Mergesort is a recursive sorting algorithm that works by splitting arrays and merging them.
   More precisely, mergeSort works as follows:
