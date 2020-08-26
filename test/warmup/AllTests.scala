@@ -29,7 +29,8 @@ class AllTests extends Suites(
             args.copy(configMap = args.configMap.updated("scoreCounter",scoreCounter))
         val res = runDirect(testName,newArgs)
         printf("You got %d/%d points!\n", scoreCounter.points, scoreCounter.maxPoints)
-        printf("Your grade for exercise 1 will be : %.2f\n",scoreCounter.fraction() * MaxGrade)
+        printf("Your base grade for exercise 1 will be : %.2f\n",scoreCounter.fraction() * MaxGrade)
+        printf("There is 1.5 ")
         res
     }
 

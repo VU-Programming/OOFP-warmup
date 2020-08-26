@@ -220,6 +220,9 @@ Note that the last character of each line should be # and that hence the line sh
 
   Program a method that takes the observations of the cameras and produces a list of speed offenders and their speed
   in the order that the cars passed cameraset B.
+
+   ----> Use a map of type Map[String,Time] to store & look up for each license plate at which time cameraset "A" was passed.
+
    */
 
   // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
