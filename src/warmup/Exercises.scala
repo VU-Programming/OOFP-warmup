@@ -260,7 +260,7 @@ Note that the last character of each line should be # and that hence the line sh
   /* Assignment 9:
 
      Program a method that when given two sorted arrays a and b, returns a new sorted array c that has the elements from
-     array and array b. For example
+     array a and array b. For example
      when given
      a = [1,3,5,6,10]
      b = [1,4,6,8]
