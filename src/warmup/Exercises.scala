@@ -201,12 +201,12 @@ Note that the last character of each line should be # and that hence the line sh
 
   Two sets of cameras have been set up on the A2 highway near Utrecht to find speed offenders. The sets of cameras,
   named "A" and "B", are 1500 meters apart and the speed limit is 100 km/h between 6:00 and 19:00 and 120 km/h between
-  19:00 and 6:00. If a car passed both cameras in a (single) 6:00 to 19:00 period then it is going to fast if its speed
-  is over 100 km/h. If a car passed either camera in between 19:00 and 6:00, then it is going to fast if its speed is over
+  19:00 and 6:00. If a car passed both cameras in a (single) 6:00 to 19:00 period then it is going too fast if its speed
+  is over 100 km/h. If a car passed either camera in between 19:00 and 6:00, then it is going too fast if its speed is over
   120 km/h.
 
-  The cameras are only positioned on North-bound direction of the highway, and the cars first pass the "A" cameras
-  and then the "B" cameras. After processing, the speed cameras produce a list of cars and the times they passed as
+  The cameras are only positioned on the North-bound direction of the highway, and the cars first pass the "A" cameras
+  and then the "B" cameras. After processing, the cameras produce a list of cars and the times they passed as
   follows (definitions of Observation and Time below):
 
   Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 3, 5.0))
