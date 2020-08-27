@@ -129,7 +129,7 @@ Note that the last character of each line should be # and that hence the line sh
 
   gives
 
-  Map(is -> 3, but -> 3, man -> 2, child -> 2, woman -> 2, A -> 3, a -> 3)
+  Map(is -> 3, but -> 3, man -> 2, child -> 2, woman -> 2, a -> 6)
 
    */
 
