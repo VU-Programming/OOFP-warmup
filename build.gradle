@@ -20,16 +20,6 @@ test {
     }
 }
 
-task codegrade(type: Test) {
-    // To make sure you can always run this task
-    outputs.upToDateWhen { false }
-    useJUnitPlatform()
-    include "**/AllTests.class"
-    testLogging {
-        events TestLogEvent.STANDARD_OUT
-    }
-}
-
 ext {
     scalaMajorVersion = '2.13'
     scalaVersion = "${scalaMajorVersion}.0"
