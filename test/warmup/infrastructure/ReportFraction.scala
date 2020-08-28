@@ -9,7 +9,7 @@ import warmup.AllTests
 class CustumReporter(val out : PrintStream) extends Reporter {
     override def apply(event: Event): Unit = {
       event match {
-        case e : TestSucceeded => out.printf("%-20s succeced!\n",e.testName)
+        case e : TestSucceeded => out.printf("%-20s succeeded!\n",e.testName)
         case e : TestFailed =>  out.printf("%-20s FAILED!\n",e.testName)
         case _ => ()
       }
