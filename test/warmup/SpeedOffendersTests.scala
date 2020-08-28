@@ -1,6 +1,7 @@
 package warmup
 
 import org.junit.runner.RunWith
+import org.scalactic.{Equality, TolerantNumerics}
 import org.scalatestplus.junit.JUnitRunner
 import warmup.Exercises.{Observation, SpeedOffender, Time, speedOffenders}
 import warmup.infrastructure.TestBase
@@ -13,8 +14,9 @@ class SpeedOffendersTests extends TestBase {
       Observation("A","NX-66-PP",Time(18492, 12,6,0)),
       Observation("B","NX-66-PP",Time(18492, 12,6,50)),
     )
-    val expected = List(SpeedOffender("NX-66-PP",107))
-    assert(speedOffenders(input) == expected)
+    val expected = List(SpeedOffender("NX-66-PP",108))
+
+    assert(speedOffenders(input) === expected)
   }
 
   test("speedOffender2") {
@@ -33,7 +35,7 @@ class SpeedOffendersTests extends TestBase {
       Observation("B", "OO-66-XX", Time(18492, 0, 0, 20)),
       Observation("B", "MM-43-QA", Time(18492, 0, 0, 40))
     )
-    val expected = List(SpeedOffender("OO-66-XX", 134))
+    val expected = List(SpeedOffender("OO-66-XX", 135))
     assert(speedOffenders(input) == expected)
   }
 
@@ -46,16 +48,14 @@ class SpeedOffendersTests extends TestBase {
       Observation("B","NX-66-PP",Time(18492, 3,6,30)),
       Observation("A","MM-11-OW", Time(18492, 3,6,40)),
       Observation("B","PP-33-XX", Time(18492, 3,7,0)),
-      Observation("B","MM-11-OW", Time(18492, 3,7,22)),
+      Observation("B","MM-11-OW", Time(18492, 3,7,16)),
       Observation("A","BA-12-PW",Time(18492, 8,59,50)),
       Observation("A","LA-53-NY",Time(18492, 8,59,59)),
       Observation("B","BA-12-PW",Time(18492, 9,0,40)),
       Observation("B","LA-53-NY",Time(18492, 9,0,56)),
     )
 
-    val expected = List(SpeedOffender("NX-66-PP",179), SpeedOffender("MM-11-OW",128), SpeedOffender("BA-12-PW",108))
+    val expected = List(SpeedOffender("NX-66-PP",180), SpeedOffender("MM-11-OW",150), SpeedOffender("BA-12-PW",108))
     assert(speedOffenders(input) == expected)
   }
-
-
 }

@@ -216,8 +216,6 @@ Note that the last character of each line should be # and that hence the line sh
   ....
   Observation(cameraSet = "A", licensePlate = "DX-98-DW", time = Time(18492, 13, 4, 1.0))
 
-
-
   Program a method that takes the observations of the cameras and produces a list of speed offenders and their speed
   in the order that the cars passed cameraset B.
 
@@ -235,6 +233,7 @@ Note that the last character of each line should be # and that hence the line sh
 
   case class Observation(cameraSet : String, licensePlate : String, time : Time )
 
+  // to convert your speed of type double to an Int use Math.round(speed).toInt
   case class SpeedOffender(licensePlate : String, speed : Int)
 
   def speedOffenders(observations: Seq[Observation]) : Seq[SpeedOffender] = {
