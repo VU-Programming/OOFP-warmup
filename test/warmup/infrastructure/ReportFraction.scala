@@ -6,7 +6,7 @@ import org.scalatest.{Args, ConfigMap, Reporter}
 import org.scalatest.events.{Event, TestFailed, TestSucceeded}
 import warmup.AllTests
 
-class CustumReporter(val out : PrintStream) extends Reporter {
+class CustomReporter(val out : PrintStream) extends Reporter {
     override def apply(event: Event): Unit = {
       event match {
         case e : TestSucceeded => out.printf("%-20s succeeded!\n",e.testName)
