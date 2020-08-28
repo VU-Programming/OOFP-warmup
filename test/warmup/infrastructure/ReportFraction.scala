@@ -30,7 +30,7 @@ object ReportFraction {
     }))
     val scoreCounter = new ScoreCounter()
     new AllTests().runDirect(None, Args(
-      reporter = new CustumReporter(out),
+      reporter = new CustomReporter(out),
       configMap = ConfigMap("scoreCounter"->  scoreCounter))
     )
     out.printf("You got %d/%d points!\n", scoreCounter.points, scoreCounter.maxPoints)
