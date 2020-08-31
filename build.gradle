@@ -56,7 +56,7 @@ task zip(type: Zip) {
     dependsOn assemble
     dependsOn testClasses
     from fileTree(dir: '.')
-    include 'src/**'
+    include 'src/**.scala'
 
     archiveFileName = 'warmup.zip'
     destinationDir(file("$projectDir"))
