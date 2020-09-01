@@ -162,8 +162,9 @@ Note that the last character of each line should be # and that hence the line sh
   his probability of winning was (1 - 0.24) = 0.76. The new elo score of player b is
   2200 + 24 * (0.0 - 0.76) = 2181.76
 
-  During a tournament, the rating of players is not changed until the tournament finishes, after which all
-  games are processed and everyone's new elo score is determined.
+  NOTICE: During a tournament, the rating of players is not changed until the tournament finishes, after which all
+  games are processed and everyone's new elo score is determined. The elo scores of the players do not change during
+   the tournament, only after. 
 
   Program a method which updates the elo ratings of all players. You can (and should) add method to classes below.
 
