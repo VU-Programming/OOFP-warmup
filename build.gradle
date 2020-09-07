@@ -54,9 +54,8 @@ task zip(type: Zip) {
     // To make sure you can always run this task
     outputs.upToDateWhen { false }
     dependsOn assemble
-    dependsOn testClasses
     from fileTree(dir: '.')
-    include 'src/**.scala'
+    include 'src/warmup/**.scala'
 
     archiveFileName = 'warmup.zip'
     destinationDir(file("$projectDir"))
