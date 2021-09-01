@@ -38,12 +38,12 @@ sourceSets.main.scala.srcDirs = ['src']
 sourceSets.test.scala.srcDirs = ['test']
 
 dependencies {
-    compile "org.scala-lang:scala-library:${scalaVersion}"
-    compile fileTree(include: ['*.jar'], dir: 'lib')
+    testCompile "org.scala-lang:scala-library:${scalaVersion}"
+    testCompile fileTree(include: ['*.jar'], dir: 'lib')
     testImplementation("junit:junit:4.13")
     testCompile("org.junit.vintage:junit-vintage-engine:5.6.0")
     testCompile "org.scalatest:scalatest_${scalaMajorVersion}:3.0.9"
-    compile "org.scalacheck:scalacheck_${scalaMajorVersion}:1.14.3"
+    testCompile "org.scalacheck:scalacheck_${scalaMajorVersion}:1.14.3"
 }
 
 
