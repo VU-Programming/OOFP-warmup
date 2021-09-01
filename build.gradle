@@ -38,8 +38,7 @@ sourceSets.main.scala.srcDirs = ['src']
 sourceSets.test.scala.srcDirs = ['test']
 
 dependencies {
-    scalaCompiler "org.scala-lang:scala-compiler:2.10.6"
-    compile fileTree(include: ['*.jar'], dir: 'lib')
+    implementation "org.scala-lang:scala-library:${scalaVersion}"
     testImplementation("junit:junit:4.13")
     testCompile("org.junit.vintage:junit-vintage-engine:5.6.0")
     testCompile "org.scalatest:scalatest_${scalaMajorVersion}:3.0.9"
