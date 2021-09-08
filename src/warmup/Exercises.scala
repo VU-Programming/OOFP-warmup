@@ -149,7 +149,7 @@ Note that the last character of each line should be # and that hence the line sh
 
   This gives a number between 0 (100 % sure that a loses) and 1 (100 % sure that a wins).
 
-  After playing a game or tournament, the elo ratings of the player are updated based on their wins and loses. The
+  After playing a game, the elo ratings of the player are updated based on their wins and loses. The
   new rating of a player is calculated based on the probability of a winning eA and the actual outcome aA.
 
   rA' = rA + k * (aA - eA)
@@ -162,9 +162,9 @@ Note that the last character of each line should be # and that hence the line sh
   his probability of winning was (1 - 0.24) = 0.76. The new elo score of player b is
   2200 + 24 * (0.0 - 0.76) = 2181.76
 
-  NOTICE: During a tournament, the rating of players is not changed until the tournament finishes, after which all
-  games are processed and everyone's new elo score is determined. The elo scores of the players do not change during
-   the tournament, only after. 
+When playing a tournament, a similar formula is used. Each game g for a player A gives a delta:
+rAd_g = k * (aA - eA)
+The elo score of A after the tournament is computed by summing all the deltas of all games, and adding that to the elo score before the tournament. The elo scores used when computing these deltas are the elo scores from before the tournament. The rating of players is not changed until the tournament finishes, after which allgames are processed and everyone's new elo score is determined. The elo scores of the players do not change during the tournament, only after. 
 
   Program a method which updates the elo ratings of all players. You can (and should) add method to classes below.
 
