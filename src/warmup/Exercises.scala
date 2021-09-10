@@ -133,7 +133,9 @@ Note that the last character of each line should be # and that hence the line sh
 
    */
 
-  def wordCount(text : String) : mutable.Map[String,Int] = Map()
+  def wordCount(text : String) : mutable.Map[String,Int] = {
+    return null
+  }
 
 
 
