@@ -71,4 +71,34 @@ class EloScoresTests extends TestBase {
 
         assert(finalResult)
     }
+
+    test("elo4") {
+        val max = new Player("Max", 2882)
+        val anish = new Player("Anish", 2872)
+        val jan = new Player("Jan", 2852)
+        val loek = new Player("Loek", 2742)
+
+        val players = List(max, anish, jan,loek)
+
+        val game1 = new Game(max, anish, 0.5)
+        val game2 = new Game(anish, jan, 1)
+        val game3 = new Game(jan, loek, 0.5)
+        val game4 = new Game(jan, max, 0.5)
+        val game5 = new Game(max, loek, 1)
+        val game6 = new Game(jan, loek, 0.5)
+        val game7 = new Game(anish, loek, 0)
+
+        val games = List(game1, game2, game3,game4,game5,game6, game7)
+
+        Exercises.updateEloScores(players, games)
+
+
+        val maxResult = max.rating === 2864.03 +- 0.01
+        val anishResult = anish.rating === 2867.36 +- 0.01
+        val janResult = jan.rating === 2858.36 +- 0.01
+        val loekResult = loek.rating === 2758.24 +- 0.01
+        val finalResult = maxResult && anishResult && janResult && loekResult
+
+        assert(maxResult)
+    }
 }
