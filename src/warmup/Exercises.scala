@@ -1,8 +1,5 @@
 package warmup
 
-import org.scalacheck.Prop._
-import org.scalacheck.Prop
-import org.scalacheck.Properties
 
 import scala.collection.mutable
 import scala.collection.mutable.Map
@@ -145,32 +142,32 @@ Note that the last character of each line should be # and that hence the line sh
   the Elo-rating system. The elo-rating is a number in the 0-3000 range, where 0 is an absolute beginner and
   2900 is the world champion.
 
-  When given the ratings of two players rA and rB, the probability of a winning the game is calculated as follows:
+  When given the ratings of two players rA and rB, the probability of player A winning the game is calculated as follows:
 
-  eA = 1 / ( 1 + 10^((rB - ra) / 400)))
+  eA = 1 / ( 1 + 10^((rB - rA) / 400)))
 
-  This gives a number between 0 (100 % sure that a loses) and 1 (100 % sure that a wins).
+  This gives a number between 0 (100 % sure that A loses) and 1 (100 % sure that A wins).
 
-  After playing a game, the elo ratings of the player are updated based on their wins and loses. The
-  new rating of a player is calculated based on the probability of a winning eA and the actual outcome aA.
+  After playing a number of games, the elo ratings of the player are updated based on their wins and loses. The
+  new elo rate delta (change in elo rate) of a player is calculated based on the probability of a winning eA and the
+  actual outcome aA.
 
-  rA' = rA + k * (aA - eA)
+  drA = k * (aA - eA)
 
-  where k is a constant controlling the importance of the game (typically between 16-32). We use k=24.
+  where k is a constant controlling the importance of the game (typically between 16-32). We use k=24. The change in elo
+  rating of a player A is the sum of all the elo rate deltas of the individual games that player A played.
 
-  For example, if player a has an elo rating of 2000 and player b has a elo rating of 2200, then the probability of
-  player a winning is 1 / ( 1 + 10^((2200 - 2000) / 400))) = 0.24. Suppose player a wins the game, so aA=1.0.
-  Then the new elo score of player a is 2000 + 24 * (1.0 - 0.24) = 2018.24. For player b the computation is reversed,
-  his probability of winning was (1 - 0.24) = 0.76. The new elo score of player b is
-  2200 + 24 * (0.0 - 0.76) = 2181.76
+  For example, if player A has an elo rating of 2000 and player B has a elo rating of 2200, then the probability of
+  player A winning is 1 / ( 1 + 10^((2200 - 2000) / 400))) = 0.24. Suppose player A wins the game, so aA=1.0.
+  Then the new elo rate delta of player A is 24 * (1.0 - 0.24) = 18.24. If we would update elo ratings after this single
+  game, the elo rate of player A would be 2000 + 18.24 = 2018.24. For player B the computation is reversed,
+  his probability of winning was (1 - 0.24) = 0.76. The elo rate delta score of player B is
+24 * (0.0 - 0.76) = -18.24. If we would update elo ratings after this single
+   game, the elo rate of player A would be 2200 - 18.24 = 2181.76.
 
-When playing a tournament, a similar formula is used. Each game g for a player A gives a delta:
-rAd_g = k * (aA - eA)
-The elo score of A after the tournament is computed by summing all the deltas of all games, and adding 
-that to the elo score before the tournament. The elo scores used when computing these deltas are the elo 
-scores from before the tournament. The rating of players is not changed until the tournament finishes, 
-after which all games are processed and everyone's new elo score is determined. The elo scores of the 
-players do not change during the tournament, only after. 
+When playing a tournament, the elo rates are kept fixed during the tournament, and are updated afterwards based on all
+the games that were played. The elo score change of each player A is the sum of all the elo rate deltas from the individual
+that A played. The elo scores used when computing these deltas are the elo scores from _before_ the tournament.
 
   Program a method which updates the elo ratings of all players. You can (and should) add method to classes below.
 

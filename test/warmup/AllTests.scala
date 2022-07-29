@@ -1,8 +1,7 @@
 package warmup
 
 import org.junit.runner.RunWith
-import org.scalatest.events.Event
-import org.scalatest.{Args, ConfigMap, Reporter, Status, Suites}
+import org.scalatest.{Args,  Status, Suites}
 import org.scalatestplus.junit.JUnitRunner
 import warmup.infrastructure.ScoreCounter
 import AllTests._
