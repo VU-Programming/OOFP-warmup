@@ -12,6 +12,10 @@ object Exercises {
       calculate the _index_ of the first of occurrence of the maximum of an array, give -1 if the array is empty
       (there is no index of the maximum)
 
+      implement this using a for loop,
+      do not use library functions such as max and indexOf
+      (we will subtract the points for this assignment if you do)
+
       examples:
         indexOfMax(Array(6,5,4,3,6)) == 0
         indexOfMax(Array(4,5,6,3,6)) == 2
@@ -19,7 +23,7 @@ object Exercises {
 
    */
   def indexOfMax(a : Array[Int]) : Int = {
-   return -1
+   a.
   }
 
 
@@ -252,11 +256,15 @@ that A played. The elo scores used when computing these deltas are the elo score
 
   If we put the second resulting array behind the first one, we should get the original array back.
 
+  implement this using a for loop (or two),
+  do not use library functions such as splitAt
+  (we will subtract the points for this assignment if you do)
+
   example: [5,3,10,5,6,1,3] -> ([5,3,10],[5,6,1,3])
 
    */
   def splitArray(a : Array[Int]) : (Array[Int],Array[Int]) = {
-    return null
+    a.
   }
 
 
@@ -286,6 +294,11 @@ that A played. The elo scores used when computing these deltas are the elo score
       the arrows (^) point to the lowest element we did not consider before. Of these, the element 4 from b is less
       then the element 5 from a. For this reason, we select 4 as the next element and advance the arrow ^ for b to point
       to 6.
+
+
+    implement this using a loop
+    do not use library functions such as sort
+    (we will subtract the points for this assignment if you do)
 
    */
   def mergeSortedArrays(a : Array[Int], b : Array[Int]) : Array[Int] = {
