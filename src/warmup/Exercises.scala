@@ -40,6 +40,9 @@ object Exercises {
   averageGrade("NS NS 9 NS NS 5") == 7
   averageGrade("8 8.2 NS NS 9 4 1 5.5") == 5.95
 
+  Use string.split(" ") to split a string in to an array of strings using " " as a separator
+  "a bb cc".split(" ") -> Array("a", "bb", "cc")
+
   Indication of solution length : 5 lines
    */
   def averageGrade(grades : String) : Double = {
