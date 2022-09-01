@@ -67,7 +67,7 @@ class DiamondStringTests extends TestBase {
     }
 
     test("diamond3") {
-        val actual = Exercises.diamondString(3)
+        val actual = Exercises.diamondString(3).stripLineEnd
         val expected = diamond3
         val clue = buildDiamondTestClue(actual, expected)
 
@@ -75,15 +75,15 @@ class DiamondStringTests extends TestBase {
     }
 
     test("diamond4") {
-        val actual = Exercises.diamondString(4)
+        val actual = Exercises.diamondString(4).stripLineEnd
         val expected = diamond4
         val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual == expected, clue)
+        assert(actual  == expected, clue)
     }
 
     test("diamond7") {
-        val actual = Exercises.diamondString(7)
+        val actual = Exercises.diamondString(7).stripLineEnd
         val expected = diamond7
         val clue = buildDiamondTestClue(actual, expected)
 
@@ -91,7 +91,7 @@ class DiamondStringTests extends TestBase {
     }
 
     test("diamond12") {
-        val actual = Exercises.diamondString(12)
+        val actual = Exercises.diamondString(12).stripLineEnd
         val expected = diamond12
         val clue = buildDiamondTestClue(actual, expected)
 

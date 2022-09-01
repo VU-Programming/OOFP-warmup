@@ -21,9 +21,11 @@ object Exercises {
         indexOfMax(Array(4,5,6,3,6)) == 2
         indexOfMax(Array()) == -1
 
+  Indication of solution function body length : 8 lines
+
    */
   def indexOfMax(a : Array[Int]) : Int = {
-   a.
+   0
   }
 
 
@@ -38,6 +40,7 @@ object Exercises {
   averageGrade("NS NS 9 NS NS 5") == 7
   averageGrade("8 8.2 NS NS 9 4 1 5.5") == 5.95
 
+  Indication of solution length : 5 lines
    */
   def averageGrade(grades : String) : Double = {
     0
@@ -72,12 +75,14 @@ object Exercises {
        collatzLength(4) = 2
        collatzLength(7) = 16
        collatzLength(27) = 111
+
+    Indication of solution length : 9 lines
      */
 
 
 
   def collatzLength(start : Long) : Long = {
-   -1
+    0
   }
 
 
@@ -108,12 +113,16 @@ Diamond of height 12
     ###
      #
 
+ (You can use multiplication on strings: "ab" * 3 -> "ababab")
 
 Note that the last character of each line should be # and that hence the line should not end in spaces.
+
+Indication of length : 12 lines
    */
 
+
   def diamondString(height : Int) : String = {
-   ""
+    ""
   }
 
 
@@ -132,10 +141,20 @@ Note that the last character of each line should be # and that hence the line sh
 
   Map(is -> 3, but -> 3, man -> 2, child -> 2, woman -> 2, a -> 6)
 
+Use split("(\\s|\\.|,|!)+") to separate words in to list
+(split gets a regular expression, this expression says a single character to split on is:
+  * whitespace (\s, we need to escape the \, so it becomes \\s)
+  * OR . (. means any character in regular expression, so we escape it for the literal \\.)
+  * OR , OR !
+ the + indicates we can have any number >= 1 of the characters above)
+Use string.toLowerCase to convert a string to lowercase
+
+Indication of length : 7 lines
    */
 
+
   def wordCount(text : String) : mutable.Map[String,Int] = {
-    return null
+    mutable.Map[String,Int]()
   }
 
 
@@ -185,6 +204,7 @@ that A played. The elo scores used when computing these deltas are the elo score
     assert(jaap.rating === 2018.24 +- 0.01)
     assert(piet.rating === 2181.76 +- 0.01)
 
+Indication of length 12 added lines
    */
 
   val eloK = 24
@@ -229,6 +249,7 @@ that A played. The elo scores used when computing these deltas are the elo score
 
    ----> Use a map of type Map[String,Time] to store & look up for each license plate at which time cameraset "A" was passed.
 
+Indication of length: 25 added lines. Add extra functions for conceptually definitions to organize your code.
    */
 
   // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
@@ -262,9 +283,13 @@ that A played. The elo scores used when computing these deltas are the elo score
 
   example: [5,3,10,5,6,1,3] -> ([5,3,10],[5,6,1,3])
 
+Use "new Array[Int](length)" to create a new int array
+
+Indication of length: 12 lines
+
    */
   def splitArray(a : Array[Int]) : (Array[Int],Array[Int]) = {
-    a.
+    null
   }
 
 
@@ -300,6 +325,7 @@ that A played. The elo scores used when computing these deltas are the elo score
     do not use library functions such as sort
     (we will subtract the points for this assignment if you do)
 
+Indication of length: 15 lines
    */
   def mergeSortedArrays(a : Array[Int], b : Array[Int]) : Array[Int] = {
     return null
@@ -329,6 +355,8 @@ that A played. The elo scores used when computing these deltas are the elo score
     5 7     1 6    -- merge
      \       /
       1 5 6 7
+
+Indication of length: 5 lines
    */
 
   def mergeSort(a : Array[Int]) : Array[Int] = {
