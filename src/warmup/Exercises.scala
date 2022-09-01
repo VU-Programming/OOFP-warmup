@@ -43,7 +43,7 @@ object Exercises {
   Use string.split(" ") to split a string in to an array of strings using " " as a separator
   "a bb cc".split(" ") -> Array("a", "bb", "cc")
 
-  Indication of solution length : 5 lines
+  Indication of solution length : 9 lines
    */
   def averageGrade(grades : String) : Double = {
     0
@@ -144,7 +144,7 @@ Indication of length : 12 lines
 
   Map(is -> 3, but -> 3, man -> 2, child -> 2, woman -> 2, a -> 6)
 
-Use split("(\\s|\\.|,|!)+") to separate words in to list
+Use string.split("(\\s|\\.|,|!)+") to separate words in a string into a list
 (split gets a regular expression, this expression says a single character to split on is:
   * whitespace (\s, we need to escape the \, so it becomes \\s)
   * OR . (. means any character in regular expression, so we escape it for the literal \\.)
