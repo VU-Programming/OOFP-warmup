@@ -16,7 +16,7 @@ class SpeedOffendersTests extends TestBase {
     )
     val expected = List(SpeedOffender("NX-66-PP",108))
 
-    assert(speedOffenders(input) === expected)
+    assert(speedOffenders(input).toList === expected)
   }
 
   test("speedOffender2") {
@@ -25,7 +25,7 @@ class SpeedOffendersTests extends TestBase {
       Observation("B","NX-66-PP",Time(18492, 3,6,50)),
     )
     val expected = List()
-    assert(speedOffenders(input) == expected)
+    assert(speedOffenders(input).toList  == expected)
   }
 
   test("speedOffender3") {
@@ -36,7 +36,7 @@ class SpeedOffendersTests extends TestBase {
       Observation("B", "MM-43-QA", Time(18492, 0, 0, 40))
     )
     val expected = List(SpeedOffender("OO-66-XX", 135))
-    assert(speedOffenders(input) == expected)
+    assert(speedOffenders(input).toList  == expected)
   }
 
 
@@ -56,6 +56,6 @@ class SpeedOffendersTests extends TestBase {
     )
 
     val expected = List(SpeedOffender("NX-66-PP",180), SpeedOffender("MM-11-OW",150), SpeedOffender("BA-12-PW",108))
-    assert(speedOffenders(input) == expected)
+    assert(speedOffenders(input).toList  == expected)
   }
 }
