@@ -2,7 +2,7 @@ package warmup
 
 
 import scala.collection.mutable
-import scala.collection.mutable.{ListBuffer, Map}
+import scala.collection.mutable.{ArrayBuffer, ListBuffer, Map}
 
 object Exercises {
 
@@ -268,11 +268,11 @@ Indication of length: 25 added lines. Add extra functions for conceptually defin
   // to convert your speed of type double to an Int use Math.round(speed).toInt
   case class SpeedOffender(licensePlate : String, speed : Int)
 
-  def speedOffenders(observations: Seq[Observation]) : ListBuffer[SpeedOffender] = {
+  def speedOffenders(observations: Seq[Observation]) : ArrayBuffer[SpeedOffender] = {
     val startTimeOfCar : mutable.Map[String,Time] = new mutable.HashMap()
-    val result :  ListBuffer[SpeedOffender] = new ListBuffer()
+    val result :  ArrayBuffer[SpeedOffender] = new ArrayBuffer()
     for(observation <- observations) {
-      // use result.addOne(elem) to add elem
+      // use result += elem to add elem
     }
 
     result
