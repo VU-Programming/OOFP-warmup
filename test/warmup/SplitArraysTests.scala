@@ -7,7 +7,7 @@ import warmup.infrastructure.TestBase
 @RunWith(classOf[JUnitRunner])
 class SplitArraysTests extends TestBase {
     private def testSplit(input : Array[Int]): Unit = {
-        val (l,r) = Exercises.splitArray(input)
+        val (l,r) = Exercises.splitArray(input.clone())
         val clue = String.format("\nInput: %s\nYour output: (%s)(%s)\n", input.mkString(" "), l.mkString(" "), r.mkString(" "))
 
         val lengthResult = l.length == input.length / 2
