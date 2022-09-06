@@ -40,5 +40,5 @@ class AllTests extends Suites(
 }
 
 object AllTests {
-    val MaxGrade = 8.5
+    val MaxGrade = 7
 }
