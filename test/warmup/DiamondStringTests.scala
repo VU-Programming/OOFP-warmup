@@ -1,11 +1,22 @@
 package warmup
 
 import org.junit.runner.RunWith
+import org.scalatest.Assertion
 import org.scalatestplus.junit.JUnitRunner
 import warmup.infrastructure.TestBase
 
 @RunWith(classOf[JUnitRunner])
 class DiamondStringTests extends TestBase {
+
+    def fixWindowNewline(str : String): String = str.replace("\r","")
+    def assertEqualIgnoreCarriageReturn(l : String, r : String) : Assertion = {
+        val ll = fixWindowNewline(l)
+        val rr = fixWindowNewline(r)
+        val clue = buildDiamondTestClue(ll,rr)
+        assert(fixWindowNewline(ll) == fixWindowNewline(rr), clue )
+    }
+
+
     private val diamond3 =
         """ #
           |###
@@ -67,34 +78,28 @@ class DiamondStringTests extends TestBase {
     }
 
     test("diamond3") {
-        val actual = Exercises.diamondString(3).stripLineEnd
-        val expected = diamond3
-        val clue = buildDiamondTestClue(actual, expected)
+        val actual = fixWindowNewline(Exercises.diamondString(3).stripLineEnd)
+        val expected = fixWindowNewline(diamond3)
 
-        assert(actual == expected, clue)
+        assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
     test("diamond4") {
         val actual = Exercises.diamondString(4).stripLineEnd
         val expected = diamond4
-        val clue = buildDiamondTestClue(actual, expected)
 
-        assert(actual  == expected, clue)
+        assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
     test("diamond7") {
         val actual = Exercises.diamondString(7).stripLineEnd
         val expected = diamond7
-        val clue = buildDiamondTestClue(actual, expected)
-
-        assert(actual == expected, clue)
+        assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
     test("diamond12") {
         val actual = Exercises.diamondString(12).stripLineEnd
         val expected = diamond12
-        val clue = buildDiamondTestClue(actual, expected)
-
-        assert(actual == expected, clue)
+        assertEqualIgnoreCarriageReturn(actual, expected)
     }
 }
