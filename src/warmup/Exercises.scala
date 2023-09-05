@@ -25,7 +25,7 @@ object Exercises {
 
    */
   def indexOfMax(a : Array[Int]) : Int = {
-   0
+    0
   }
 
 
