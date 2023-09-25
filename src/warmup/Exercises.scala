@@ -252,7 +252,9 @@ Indication of length 12 added lines
 
    ----> Use a map of type Map[String,Time] to store & look up for each license plate at which time cameraset "A" was passed.
 
-Indication of length: 25 added lines. Add extra functions for conceptually definitions to organize your code.
+Indication of length: 25 added lines. Add extra functionsto organize your code.
+
+Make sure to use (names for) constants instead of magic numbers.
    */
 
   // The used epoch is 1 January 1970. An epoch is an instant in time chosen as the origin of a time scale.
