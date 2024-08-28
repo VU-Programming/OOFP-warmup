@@ -3,26 +3,13 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id 'scala'
-    id 'idea'
+
 }
 
-
-test {
-    useJUnitPlatform()
-    exclude "**/TestMaster.class"
-    afterSuite { suite, result ->
-        result.exception?.printStackTrace()
-    }
-    testLogging {
-        events TestLogEvent.STANDARD_OUT,
-               TestLogEvent.FAILED,
-               TestLogEvent.PASSED
-    }
-}
 
 ext {
     scalaMajorVersion = '2.13'
-    scalaVersion = "${scalaMajorVersion}.11"
+    scalaVersion = "${scalaMajorVersion}.14"
 }
 
 
@@ -40,15 +27,14 @@ sourceSets.test.scala.srcDirs = ['test']
 
 dependencies {
     implementation "org.scala-lang:scala-library:${scalaVersion}"
-    compile fileTree(include: ['*.jar'], dir: 'lib')
-    testImplementation('junit:junit:4.13.2')
+    testImplementation 'junit:junit:4.13.2'
     testImplementation("org.scala-lang:scala-reflect") {
         version {
-            strictly '2.13.11'
+            strictly '2.13.14'
         }
     }
     testImplementation('org.junit.vintage:junit-vintage-engine:5.9.0')
-    testImplementation("org.scalatest:scalatest_${scalaMajorVersion}:3.0.9")
+      testImplementation("org.scalatest:scalatest_${scalaMajorVersion}:3.0.9")
 }
 
 
@@ -63,7 +49,6 @@ task zip(type: Zip) {
     include 'src/warmup/**.scala'
 
     archiveFileName = 'warmup.zip'
-    destinationDir(file("$projectDir"))
 }
 
 
@@ -73,10 +58,9 @@ task zip(type: Zip) {
 task fraction(type: JavaExec, dependsOn: classes) {
     // To make sure you can always run this task
     outputs.upToDateWhen { false }
-    main = 'warmup.infrastructure.ReportFraction'
+    mainClass = 'warmup.infrastructure.ReportFraction'
     classpath sourceSets.test.runtimeClasspath
     classpath sourceSets.main.runtimeClasspath
-    classpath configurations.runtime
 }
 
 
