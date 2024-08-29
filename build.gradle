@@ -49,6 +49,7 @@ task zip(type: Zip) {
     include 'src/warmup/**.scala'
 
     archiveFileName = 'warmup.zip'
+    destinationDirectory = layout.buildDirectory.dir("$projectDir")
 }
 
 
