@@ -30,7 +30,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation("org.scala-lang:scala-reflect") {
         version {
-            strictly '2.13.14'
+            strictly '2.13.16'
         }
     }
     testImplementation('org.junit.vintage:junit-vintage-engine:5.9.0')
