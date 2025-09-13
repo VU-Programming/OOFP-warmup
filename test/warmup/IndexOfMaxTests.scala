@@ -62,4 +62,18 @@ class IndexOfMaxTests extends TestBase {
 
         assert(actual == expected)
     }
+    
+    test("max8") {
+        val actual = Exercises.indexOfMax(Array(1, 2, 3, 0, 0, 6))
+        val expected = 5
+        
+        assert(actual == expected)
+    }
+
+    test("max9") {
+        val actual = Exercises.indexOfMax(Array(Int.MinValue))
+        val expected = 0
+        
+        assert(actual == expected)
+    }
 }
