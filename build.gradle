@@ -9,7 +9,7 @@ plugins {
 
 ext {
     scalaMajorVersion = '2.13'
-    scalaVersion = "${scalaMajorVersion}.16"
+    scalaVersion = "${scalaMajorVersion}.18"
 }
 
 
