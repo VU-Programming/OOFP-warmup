@@ -26,13 +26,10 @@ sourceSets.test.scala.srcDirs = ['test']
 
 
 dependencies {
+    // scalaRepl("org.scala-lang:scala3-library_3:${scalaVersion}")
+    implementation("org.scala-lang:scala3-compiler_3:${scalaVersion}")
     implementation("org.scala-lang:scala3-library_3:${scalaVersion}")
     testImplementation 'junit:junit:4.13.2'
-    // testImplementation("org.scala-lang:scala-reflect") {
-    //     version {
-    //         strictly '2.13.16'
-    //     }
-    // }
     testImplementation('org.junit.vintage:junit-vintage-engine:5.9.0')
     
     testImplementation("org.scalatest:scalatest_3:3.2.19")
@@ -66,5 +63,11 @@ task fraction(type: JavaExec, dependsOn: classes) {
     classpath sourceSets.main.runtimeClasspath
 }
 
+task scalaRepl(type: JavaExec, dependsOn: classes) {
+    group = "scala"
+    mainClass = "dotty.tools.MainGenericRunner"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
 
-
+    args("-usejavacp")
+}
