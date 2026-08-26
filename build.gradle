@@ -8,8 +8,8 @@ plugins {
 
 
 ext {
-    scalaMajorVersion = '2.13'
-    scalaVersion = "${scalaMajorVersion}.16"
+    scalaMajorVersion = '3.3'
+    scalaVersion = "${scalaMajorVersion}.8"
 }
 
 
@@ -26,15 +26,14 @@ sourceSets.test.scala.srcDirs = ['test']
 
 
 dependencies {
-    implementation "org.scala-lang:scala-library:${scalaVersion}"
+    // scalaRepl("org.scala-lang:scala3-library_3:${scalaVersion}")
+    implementation("org.scala-lang:scala3-compiler_3:${scalaVersion}")
+    implementation("org.scala-lang:scala3-library_3:${scalaVersion}")
     testImplementation 'junit:junit:4.13.2'
-    testImplementation("org.scala-lang:scala-reflect") {
-        version {
-            strictly '2.13.16'
-        }
-    }
     testImplementation('org.junit.vintage:junit-vintage-engine:5.9.0')
-      testImplementation("org.scalatest:scalatest_${scalaMajorVersion}:3.0.9")
+    
+    testImplementation("org.scalatest:scalatest_3:3.2.19")
+    testImplementation("org.scalatestplus:junit-4-13_3:3.2.19.0")
 }
 
 
@@ -64,5 +63,11 @@ task fraction(type: JavaExec, dependsOn: classes) {
     classpath sourceSets.main.runtimeClasspath
 }
 
+task scalaRepl(type: JavaExec, dependsOn: classes) {
+    group = "scala"
+    mainClass = "dotty.tools.MainGenericRunner"
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
 
-
+    args("-usejavacp")
+}

@@ -17,15 +17,15 @@ class SplitArraysTests extends TestBase {
         assert(elementsResult, clue)
     }
 
-    test("split0") {
+    weightedTest("split0") {
         testSplit(Array(5,3,10,5,6,1,3))
     }
 
-    test("split1") {
+    weightedTest("split1") {
         testSplit(Array(6,5,3,6,1,3))
     }
 
-    test("split2" ) {
+    weightedTest("split2" ) {
         testSplit(Array(6,5,3,6,1,3,8,5,3))
     }
 }
