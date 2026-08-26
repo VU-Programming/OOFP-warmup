@@ -58,4 +58,13 @@ class SpeedOffendersTests extends TestBase {
     val expected = List(SpeedOffender("NX-66-PP",180), SpeedOffender("MM-11-OW",150), SpeedOffender("BA-12-PW",108))
     assert(speedOffenders(input).toList  == expected)
   }
+
+  test("speedOffender5") {
+    val input = List(
+      Observation("A", "OO-66-XX", Time(0, 18, 59, 59)),
+      Observation("B", "OO-66-XX", Time(0, 19, 0, 0))
+    )
+    val expected = List(SpeedOffender("OO-66-XX", 5400))
+    assert(speedOffenders(input).toList == expected)
+  }
 }
