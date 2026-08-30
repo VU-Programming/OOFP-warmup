@@ -6,35 +6,35 @@ import warmup.infrastructure.TestBase
 
 @RunWith(classOf[JUnitRunner])
 class CollatzLengthTests extends TestBase {
-    weightedTest("collatz0") {
+    test("collatz0") {
         val actual = Exercises.collatzLength(1)
         val expected = 0
 
         assert(actual == expected)
     }
 
-    weightedTest("collatz1") {
+    test("collatz1") {
         val actual = Exercises.collatzLength(11)
         val expected = 14
 
         assert(actual == expected)
     }
 
-    weightedTest("collatz2") {
+    test("collatz2") {
         val actual = Exercises.collatzLength(7)
         val expected = 16
 
         assert(actual == expected)
     }
 
-    weightedTest("collatz3") {
+    test("collatz3") {
         val actual = Exercises.collatzLength(27)
         val expected = 111
 
         assert(actual == expected)
     }
 
-    weightedTest("collatz4") {
+    test("collatz4") {
         val actual = Exercises.collatzLength(837799)
         val expected = 524
 
