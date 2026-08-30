@@ -63,11 +63,11 @@ task fraction(type: JavaExec, dependsOn: classes) {
     classpath sourceSets.main.runtimeClasspath
 }
 
-task scalaRepl(type: JavaExec, dependsOn: classes) {
-    group = "scala"
-    mainClass = "dotty.tools.MainGenericRunner"
-    classpath = sourceSets.main.runtimeClasspath
-    standardInput = System.in
 
-    args("-usejavacp")
+task printRuntimeClasspath {
+    dependsOn classes
+    doLast {
+        println sourceSets.main.runtimeClasspath.asPath
+    }
 }
+
