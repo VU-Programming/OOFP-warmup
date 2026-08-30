@@ -9,7 +9,7 @@ import warmup.infrastructure.TestBase
 @RunWith(classOf[JUnitRunner])
 class SpeedOffendersTests extends TestBase {
 
-  weightedTest("speedOffender1") {
+  test("speedOffender1") {
     val input = List(
       Observation("A","NX-66-PP",Time(18492, 12,6,0)),
       Observation("B","NX-66-PP",Time(18492, 12,6,50)),
@@ -19,7 +19,7 @@ class SpeedOffendersTests extends TestBase {
     assert(speedOffenders(input).toList === expected)
   }
 
-  weightedTest("speedOffender2") {
+  test("speedOffender2") {
     val input = List(
       Observation("A","NX-66-PP",Time(18492, 3,6,0)),
       Observation("B","NX-66-PP",Time(18492, 3,6,50)),
@@ -28,7 +28,7 @@ class SpeedOffendersTests extends TestBase {
     assert(speedOffenders(input).toList  == expected)
   }
 
-  weightedTest("speedOffender3") {
+  test("speedOffender3") {
     val input = List(
       Observation("A", "OO-66-XX", Time(18491, 23, 59, 40)),
       Observation("A", "MM-43-QA", Time(18491, 23, 59, 50)),
@@ -40,7 +40,7 @@ class SpeedOffendersTests extends TestBase {
   }
 
 
-  weightedTest("speedOffender4") {
+  test("speedOffender4") {
     val input = List(
       Observation("A","OO-66-XX",Time(18491, 23,59,40)),
       Observation("A","NX-66-PP",Time(18492, 3,6,0)),

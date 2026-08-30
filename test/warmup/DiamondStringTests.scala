@@ -77,27 +77,27 @@ class DiamondStringTests extends TestBase {
             .prependedAll(String.format("\n%1$-20s%2$s\n", "Your output:", "Expected output:"))
     }
 
-    weightedTest("diamond3") {
+    test("diamond3") {
         val actual = fixWindowNewline(Exercises.diamondString(3).stripLineEnd)
         val expected = fixWindowNewline(diamond3)
 
         assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
-    weightedTest("diamond4") {
+    test("diamond4") {
         val actual = Exercises.diamondString(4).stripLineEnd
         val expected = diamond4
 
         assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
-    weightedTest("diamond7") {
+    test("diamond7") {
         val actual = Exercises.diamondString(7).stripLineEnd
         val expected = diamond7
         assertEqualIgnoreCarriageReturn(actual, expected)
     }
 
-    weightedTest("diamond12") {
+    test("diamond12") {
         val actual = Exercises.diamondString(12).stripLineEnd
         val expected = diamond12
         assertEqualIgnoreCarriageReturn(actual, expected)
