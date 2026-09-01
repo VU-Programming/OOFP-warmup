@@ -16,6 +16,8 @@ class CustomReporter(val out : PrintStream) extends Reporter {
     }
 }
 
+
+
 // reports your score as a fraction between 0 and 1 for codegrade
 object ReportFraction {
   def main(args : Array[String]) : Unit  = {
@@ -36,12 +38,18 @@ object ReportFractionCodegrade {
   def main(args : Array[String]) : Unit  = {
     val scoreCounter = new ScoreCounter()
     val out = System.out
+    val nulll = new PrintStream(new OutputStream {
+      override def write(i: Int): Unit = ()
+    })
+    // prevent inventive students from printing 1.0 to
+    // stderr and then getting full points
+    System.setOut(nulll)
+    System.setErr(nulll)
     new AllTests().runDirect(None, Args(
-      reporter = new CustomReporter(out),
+      reporter = new CustomReporter(nulll),
       configMap = ConfigMap("scoreCounter"->  scoreCounter))
     )
-    val fd3 = new PrintWriter(new FileOutputStream("/proc/self/fd/3"))
-    fd3.printf("'{ \"tag\": \"points\", \"points\": \"%f\" }",scoreCounter.fraction() * AllTests.MaxGrade)
-    fd3.close()
+    out.printf("'{ \"tag\": \"points\", \"points\": \"%f\" }",scoreCounter.fraction() * AllTests.MaxGrade)
+    out.close()
   }
 }
