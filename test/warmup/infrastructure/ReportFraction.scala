@@ -49,7 +49,7 @@ object ReportFractionCodegrade {
       reporter = new CustomReporter(nulll),
       configMap = ConfigMap("scoreCounter"->  scoreCounter))
     )
-    out.printf("'{ \"tag\": \"points\", \"points\": \"%f\" }",scoreCounter.fraction() * AllTests.MaxGrade)
+    out.printf("'{ \"tag\": \"points\", \"points\": \"%d / %d\" }", scoreCounter.points, scoreCounter.maxPoints)
     out.close()
   }
 }
