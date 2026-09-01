@@ -63,6 +63,18 @@ task fraction(type: JavaExec, dependsOn: classes) {
     classpath sourceSets.main.runtimeClasspath
 }
 
+/* this prints a number between 0.0 and 1.0 to stderr
+   for use in codegrade
+ */
+task codegrade(type: JavaExec, dependsOn: classes) {
+    // To make sure you can always run this task
+    outputs.upToDateWhen { false }
+    mainClass = 'warmup.infrastructure.ReportFractionCodegrade'
+    classpath sourceSets.test.runtimeClasspath
+    classpath sourceSets.main.runtimeClasspath
+}
+
+
 
 task printRuntimeClasspath {
     dependsOn classes
